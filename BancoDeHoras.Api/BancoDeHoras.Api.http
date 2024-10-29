@@ -1,0 +1,6 @@
+@BancoDeHoras.Api_HostAddress = http://localhost:5199
+
+GET {{BancoDeHoras.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
