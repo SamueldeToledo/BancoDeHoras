@@ -2,7 +2,12 @@ using BancoDeHoras.CrossCutting.Ioc;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddEndpointsApiExplorer();
+builder.Services
+        .AddAuthentication()
+        .AddBearerToken();
 
+builder.Services.AddAuthorization();
 // Add services to the container.
 
 builder.Services.AddControllers();

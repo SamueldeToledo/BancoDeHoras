@@ -16,6 +16,8 @@ namespace BancoDeHoras.Infraestructure.Context
         {  }
 
         public DbSet<FolhaHorasUsuario> FolhaHorasUsuario { get; set; }
+        public DbSet<MarcaPonto> MarcaPontos { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
 
         //aqui a gente aplica as configurações da entidade, o seu mapeamento com as colunas no banco

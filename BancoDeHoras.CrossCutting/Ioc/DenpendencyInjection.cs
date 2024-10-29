@@ -19,6 +19,8 @@ namespace BancoDeHoras.CrossCutting.Ioc
             options.UseSqlServer(configuration.GetConnectionString("BloggingDatabase")));
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IFolhaHorasUsuarioService, FolhaHorasUsuarioService>();
+            services.AddScoped<IUsuario, UsuarioRepositoy>();
+            services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<IMarcaPontoService, MarcaPontoService>();
             services.AddAutoMapper(typeof(MappingProfile));
             return services;

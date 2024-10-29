@@ -15,6 +15,7 @@ namespace BancoDeHoras.Application.Mappings
         {
             CreateMap<FolhaHorasUsuarioDTO, FolhaHorasUsuario>().ReverseMap();
             CreateMap<MarcaPontoDTO, MarcaPonto>().ReverseMap();
+            CreateMap<UsuarioDTO, Usuario>().ReverseMap();
         }
     }
 }
