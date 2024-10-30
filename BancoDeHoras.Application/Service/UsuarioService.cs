@@ -35,8 +35,8 @@ namespace BancoDeHoras.Application.Service
 
         public void Post(UsuarioDTO entity)
         {
-            var DTO = _mapper.Map<Usuario>(entity);
-            _context.Post(DTO!);
+            var NewUser = new Usuario() { Id = 0, Nome = entity.Nome, Senha = entity.Senha, DatAtl = DateTime.Now, DatCri = DateTime.Now, Status = true };
+            _context.Post(NewUser);
             _context.Commit();
         }
 

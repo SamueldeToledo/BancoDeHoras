@@ -7,11 +7,11 @@ namespace BancoDeHoras.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MarcaPonto : ControllerBase
+    public class MarcaPontoController : ControllerBase
     {
         private readonly IMarcaPontoService _service;
 
-        public MarcaPonto(IMarcaPontoService service)
+        public MarcaPontoController(IMarcaPontoService service)
         {
             _service = service;
         }

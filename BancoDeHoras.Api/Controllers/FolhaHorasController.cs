@@ -1,5 +1,6 @@
 ﻿using BancoDeHoras.Application.DTO;
 using BancoDeHoras.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
@@ -8,15 +9,16 @@ namespace BancoDeHoras.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FolhaHoras : ControllerBase
+    public class FolhaHorasController : ControllerBase
     {
         private readonly IFolhaHorasUsuarioService _service;
 
-        public FolhaHoras(IFolhaHorasUsuarioService service)
+        public FolhaHorasController(IFolhaHorasUsuarioService service)
         {
             _service = service;
         }
 
+        [Authorize]
         [HttpGet("Get all hours")]
         public ActionResult<IList<FolhaHorasUsuarioDTO>> GetAll()
         {

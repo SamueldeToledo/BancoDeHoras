@@ -1,6 +1,8 @@
 ﻿using BancoDeHoras.Application.Interfaces;
 using BancoDeHoras.Application.Mappings;
 using BancoDeHoras.Application.Service;
+using BancoDeHoras.CrossCutting.Interface;
+using BancoDeHoras.CrossCutting.Jwt;
 using BancoDeHoras.Domain.Interfaces;
 using BancoDeHoras.Infraestructure.Context;
 using BancoDeHoras.Infraestructure.Repositories;
@@ -20,6 +22,7 @@ namespace BancoDeHoras.CrossCutting.Ioc
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IFolhaHorasUsuarioService, FolhaHorasUsuarioService>();
             services.AddScoped<IUsuario, UsuarioRepositoy>();
+            services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IUsuarioService, UsuarioService>();
             services.AddScoped<IMarcaPontoService, MarcaPontoService>();
             services.AddAutoMapper(typeof(MappingProfile));
