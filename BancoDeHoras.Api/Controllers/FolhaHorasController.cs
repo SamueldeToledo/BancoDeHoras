@@ -34,7 +34,7 @@ namespace BancoDeHoras.Api.Controllers
         }
 
         [HttpPost("Insert the point")]
-        public void Post([Required][FromQuery] FolhaHorasUsuarioDTO entity)
+        public void Post(FolhaHorasUsuarioDTO entity)
         {
             _service.Post(entity);
             Ok("Ponto inserido com sucesso!!");
@@ -42,20 +42,26 @@ namespace BancoDeHoras.Api.Controllers
         }
 
         [HttpPut("Update the point")]
-        public void Put(FolhaHorasUsuarioDTO entity)
+        public ActionResult Put([Required][FromQuery] FolhaHorasUsuarioDTO entity)
         {
+            if (entity.Id == null || entity.Id == 0)
+                return BadRequest("Insira o ID para atualizar!!");
+
             _service.Put(entity);
-            Ok("Ponto atualizado com sucesso!!");
-            return;
+            return Ok("Ponto atualizado com sucesso!!");
+
         }
 
 
         [HttpDelete("Delete Point")]
-        public void Delete(FolhaHorasUsuarioDTO entity)
+        public ActionResult Delete(FolhaHorasUsuarioDTO entity)
         {
+            if (entity.Id == null || entity.Id == 0)
+                return BadRequest("Insira o ID para deletar!!");
+
+
             _service.Delete(entity);
-            Ok("Ponto deletado com sucesso!!");
-            return;
+            return Ok("Ponto deletado com sucesso!!");
         }
     }
 }
