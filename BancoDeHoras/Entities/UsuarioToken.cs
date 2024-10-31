@@ -8,6 +8,7 @@ namespace BancoDeHoras.Domain.Entities
 {
     public class UsuarioToken
     {
+        public int Id { get; set; }
         public string? Nome { get; set; }
 
         public string? Token { get; set; }

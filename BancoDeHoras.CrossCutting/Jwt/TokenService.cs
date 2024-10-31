@@ -52,8 +52,10 @@ namespace BancoDeHoras.CrossCutting.Jwt
                  );
 
                 // Retorna o token JWT em formato string
+                var usuarioDados = _context.GetLogin(entity.Nome, entity.Senha);
                 return new UsuarioToken()
                 {
+                    Id= usuarioDados.Id,
                     Token = new JwtSecurityTokenHandler().WriteToken(token),
                     Nome = entity.Nome,
                 };

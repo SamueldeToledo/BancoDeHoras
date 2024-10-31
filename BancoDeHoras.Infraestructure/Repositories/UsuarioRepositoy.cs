@@ -24,5 +24,7 @@ namespace BancoDeHoras.Infraestructure.Repositories
             var entity = _context.Usuarios.FirstOrDefault(u => u.Nome == nome && u.Senha == senha);
             return entity!;
         }
+
+
     }
 }

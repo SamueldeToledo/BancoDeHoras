@@ -42,11 +42,14 @@ namespace BancoDeHoras.Application.Service
 
         public void Put(UsuarioDTO entity)
         {
-            throw new NotImplementedException();
+            var UpdateUser = new Usuario() { Id = entity.Id, Nome = entity.Nome, Senha = entity.Senha, DatAtl = DateTime.Now, DatCri = DateTime.Now, Status = true };
+            _context.Put(UpdateUser);
+            _context.Commit();
         }
-        public void Delete(UsuarioDTO entity)
+        public void Delete(Usuario entity)
         {
-            throw new NotImplementedException();
+            _context.Delete(entity);
+            _context.Commit();
         }
     }
 }

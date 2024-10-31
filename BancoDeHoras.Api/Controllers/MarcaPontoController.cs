@@ -1,5 +1,6 @@
 ﻿using BancoDeHoras.Application.DTO;
 using BancoDeHoras.Application.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
@@ -7,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 namespace BancoDeHoras.Api.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class MarcaPontoController : ControllerBase
     {

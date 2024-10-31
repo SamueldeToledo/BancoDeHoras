@@ -15,6 +15,6 @@ namespace BancoDeHoras.Application.Interfaces
         UsuarioDTO Get(Expression<Func<UsuarioDTO, bool>> predicate);
         void Post(UsuarioDTO entity);
         void Put(UsuarioDTO entity);
-        void Delete(UsuarioDTO entity);
+        void Delete(Usuario entity);
     }
 }

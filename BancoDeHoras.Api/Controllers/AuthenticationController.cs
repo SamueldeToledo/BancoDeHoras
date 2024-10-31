@@ -4,6 +4,7 @@ using BancoDeHoras.Application.Interfaces;
 using BancoDeHoras.CrossCutting.Interface;
 using BancoDeHoras.CrossCutting.Jwt;
 using BancoDeHoras.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
@@ -26,6 +27,7 @@ namespace BancoDeHoras.Api.Controllers
             _mapper = mapper;
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult Post(UsuarioDTO entity)
         {
@@ -44,6 +46,25 @@ namespace BancoDeHoras.Api.Controllers
             var token = _token.GenerateToken(DTO);
 
             return token.Nome !="" ? Ok(token) : BadRequest("Nome ou senha incorretos");
+        }
+
+        [Authorize]
+        [HttpDelete("Delete a user")]
+        public ActionResult Delete([Required][FromQuery] Usuario entity)
+        {
+            _service.Delete(entity);
+            return Ok();
+        }
+
+        [Authorize]
+        [HttpPut]
+        public ActionResult Put(UsuarioDTO entity)
+        {
+            if (entity.Id == null || entity.Id == 0)
+                return BadRequest("É necessario ser informado o id do usuario!!!");
+           
+            _service.Put(entity);
+            return Ok();
         }
     }
 }

@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations;
 namespace BancoDeHoras.Api.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class FolhaHorasController : ControllerBase
     {
