@@ -8,6 +8,6 @@ namespace BancoDeHoras.CrossCutting.Jwt
 {
     public class Key
     {
-        public static string SecretKey = "ovaZPLtqpmwgeMapUgZFdAAj3MHSxjEqkZrPs7DoDgxalW58q5pA80kAsGy3QoT9";
+        public static string SecretKey = "SECRET-KEY";
     }
 }
